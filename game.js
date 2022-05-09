@@ -52,7 +52,7 @@ function create() {
 
  
   this.player = this.physics.add.sprite(50, 300, 'player');
-  this.player.setBounce(0.3); // our player will bounce from items
+  this.player.setBounce(0.1); // our player will bounce from items
   this.player.setCollideWorldBounds(true); // don't go out of the map
   this.physics.add.collider(this.player, platforms);
 
@@ -118,7 +118,7 @@ function update() {
 
  
   if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()) {
-    this.player.setVelocityY(-350);
+    this.player.setVelocityY(-450);
     this.player.play('jump', true);
   }
 
@@ -139,7 +139,7 @@ function update() {
  */
 function playerHit(player, spike) {
   
-  player.setVelocity(0, 0);
+  player.setVelocity(0,0);
  
   player.setX(50);
   player.setY(300);
@@ -151,7 +151,7 @@ function playerHit(player, spike) {
   let tw = this.tweens.add({
     targets: player,
     alpha: 1,
-    duration: 100,
+    duration: 200,
     ease: 'Linear',
     repeat: 5,
   });
